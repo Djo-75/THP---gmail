@@ -14,5 +14,15 @@ class EmailsController < ApplicationController
     def show
         @email = Email.find(params[:id])
     end
+
+    def destroy
+        @email = Email.find(params[:id])
+        @email.destroy
+
+        respond_to do |format|
+            format.turbo_stream { render turbo_stream: turbo_stream.remove(@email) }
+            format.html         { redirect_to emails_path }
+        end
+    end
           
 end

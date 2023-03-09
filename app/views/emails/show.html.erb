@@ -4,11 +4,11 @@
 <%= render partial: "email", locals: {message: @email}%>
 
 <div>
-  <%= link_to "Editer cet email", edit_user_path(@email) %> |
+  <%= link_to "Editer cet email", edit_email_path(@email) %> |
   <%= link_to "Retour aux emails", emails_path %>
 
-  <%= button_to "Détruire email", @email, method: :delete %>
-  <%= button_to "Mail lu/non lu", @email, method: :delete %>
+  <%= button_to "Delete", @email, method: :delete %>
+  <%= button_to "Mail lu/non lu", @email, data: {turbo_method: :delete} %>
 </div>
 
 </turbo-frame>
