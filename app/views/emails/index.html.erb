@@ -14,8 +14,8 @@
             <th scope="col">Email sélectionné</th>
           </tr>
         </thead>
-        <tbody>
-            <turbo-frame id ="new_message">
+        <tbody id ="new_message" is="turbo-frame">
+            <turbo-frame>
               <% @emails.each do |email| %>
                 <%= render partial: "messages", locals: {message: email}%>
               <% end %>
