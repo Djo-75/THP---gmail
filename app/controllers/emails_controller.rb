@@ -19,10 +19,8 @@ class EmailsController < ApplicationController
         @email = Email.find(params[:id])
         @email.destroy
 
-        respond_to do |format|
-            format.turbo_stream { render turbo_stream: turbo_stream.remove(@email) }
-            format.html         { redirect_to emails_path }
-        end
+        redirect_to root_path
+
     end
           
 end

@@ -7,7 +7,7 @@
   <%= link_to "Editer cet email", edit_email_path(@email) %> |
   <%= link_to "Retour aux emails", emails_path %>
 
-  <%= button_to "Delete", @email, method: :delete %>
+  <%= button_to "Delete", @email, method: :delete, data: { turbo_frame: "_top"} %>
   <%= button_to "Mail lu/non lu", @email, data: {turbo_method: :delete} %>
 </div>
 
