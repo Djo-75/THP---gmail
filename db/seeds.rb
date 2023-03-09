@@ -9,10 +9,13 @@
 10.times do
     object = Faker::Lorem.sentence
     body = Faker::Lorem.paragraphs(number: 3).join("\n")
+    read = "false"
     
     Email.create!(
       object: object,
-      body: body
+      body: body,
+      read: read
+
     )
 end
 

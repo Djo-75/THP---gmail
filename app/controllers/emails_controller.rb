@@ -4,7 +4,7 @@ class EmailsController < ApplicationController
     end
 
     def create
-        @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Lorem.paragraphs(number: 3).join("\n"))
+        @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Lorem.paragraphs(number: 3).join("\n"), read: false)
         
         render turbo_stream: [
             turbo_stream.prepend("new_message", partial: "messages", locals: { message: @email })
