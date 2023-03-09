@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
     def index
-        @emails = Email.all
+        @emails = Email.order(created_at: :desc)
     end
 
     def create
@@ -9,6 +9,10 @@ class EmailsController < ApplicationController
         render turbo_stream: [
             turbo_stream.prepend("new_message", partial: "messages", locals: { message: @email })
                     ]
+    end
+
+    def show
+        @email = Email.find(params[:id])
     end
           
 end

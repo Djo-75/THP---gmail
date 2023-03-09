@@ -1,4 +1,6 @@
 <tr>
+<th scope="row"><%= message.id %></th>
 <td><%= message.object %></td>
 <td><%= message.body %></td>
+<td><%= link_to "Cliquer", email_path(message) %></td>
 </tr>

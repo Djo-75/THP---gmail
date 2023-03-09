@@ -6,22 +6,24 @@
   </head>
   <body>
     <div class="container-md">
+    <turbo-frame id = "table_frame">
       <%= button_to "Créer email", { action: "create" }, class: "btn btn-primary" %>
       <table class="table table-dark">
         <thead>
           <tr>
+            <th scope="col">Number</th>
             <th scope="col">Liste emails</th>
-            <th scope="col">Email sélectionné</th>
+            <th scope="col">Contenu</th>
+            <th scope="col">Sélectionner mail</th>
           </tr>
         </thead>
         <tbody id ="new_message" is="turbo-frame">
-            <turbo-frame>
-              <% @emails.each do |email| %>
-                <%= render partial: "messages", locals: {message: email}%>
-              <% end %>
-            </turbo-frame>
+            <% @emails.each do |email| %>
+              <%= render partial: "messages", locals: {message: email}%>
+            <% end %>
         </tbody>
       </table>
+      </turbo-frame>
     </div>
   </body>
 </html>
